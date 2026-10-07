@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0d12" />
+    <meta
+      name="description"
+      content="MockForge — design, mock and test REST APIs entirely in the browser. Templated responses, stateful CRUD, OpenAPI import and MSW code export."
+    />
+    <meta property="og:title" content="MockForge — mock REST APIs in your browser" />
+    <meta
+      property="og:description"
+      content="Design endpoints, generate realistic data with faker templates and export MSW handlers. No backend required."
+    />
+    <meta property="og:type" content="website" />
+    <title>MockForge — Mock REST APIs in your browser</title>
+    <script>
+      // Apply the theme before first paint to avoid a flash.
+      ;(function () {
+        try {
+          var p = localStorage.getItem('mockforge:theme') || 'system'
+          var dark =
+            p === 'dark' || (p === 'system' && matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>MockForge needs JavaScript to run.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

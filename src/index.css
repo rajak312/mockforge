@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f3f8;
+  --surface-3: #e8ebf2;
+  --line: #e2e5ee;
+  --line-strong: #cfd4e0;
+  --fg: #11131c;
+  --fg-muted: #5a6175;
+  --fg-subtle: #8a90a2;
+  --accent: #5b45f0;
+  --accent-hover: #4c37e0;
+  --accent-soft: #ece9ff;
+  --accent-fg: #ffffff;
+  --ring: #7c6bff;
+  --code-bg: #fbfbfd;
+  --shadow: 0 1px 2px rgb(16 24 40 / 0.05), 0 8px 24px -12px rgb(16 24 40 / 0.12);
+}
+
+.dark {
+  --bg: #0a0c11;
+  --surface: #10131a;
+  --surface-2: #151922;
+  --surface-3: #1c212c;
+  --line: #222836;
+  --line-strong: #2f3647;
+  --fg: #e7e9f0;
+  --fg-muted: #9aa1b4;
+  --fg-subtle: #6b7287;
+  --accent: #7c6bff;
+  --accent-hover: #8f80ff;
+  --accent-soft: #221d45;
+  --accent-fg: #ffffff;
+  --ring: #8f80ff;
+  --code-bg: #0d1016;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -12px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-fg: var(--accent-fg);
+  --color-ring: var(--ring);
+  --color-code: var(--code-bg);
+  --shadow-panel: var(--shadow);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-fg antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+  }
+  dialog::backdrop {
+    background: rgb(5 6 10 / 0.55);
+    backdrop-filter: blur(2px);
+  }
+  code,
+  kbd,
+  pre {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-line bg-surface;
+  }
+  .label {
+    @apply text-xs font-medium text-muted;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--line) 60%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklab, var(--line) 60%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 44px 44px;
+  }
+}
+
+/* CodeMirror */
+.cm-editor {
+  height: 100%;
+  font-size: 12.5px;
+  background: var(--code-bg);
+}
+.cm-editor.cm-focused {
+  outline: none;
+}
+.cm-scroller {
+  font-family: var(--font-mono) !important;
+  line-height: 1.6 !important;
+}
+.cm-gutters {
+  background: var(--code-bg) !important;
+  border-right: 1px solid var(--line) !important;
+  color: var(--fg-subtle) !important;
+}
+.cm-activeLineGutter,
+.cm-activeLine {
+  background: color-mix(in oklab, var(--accent) 6%, transparent) !important;
+}
+.cm-template-tag {
+  color: #b45309;
+  background: color-mix(in oklab, #f59e0b 14%, transparent);
+  border-radius: 3px;
+}
+.dark .cm-template-tag {
+  color: #fbbf24;
+  background: color-mix(in oklab, #f59e0b 12%, transparent);
+}
+.cm-tooltip {
+  border-radius: 8px !important;
+  border: 1px solid var(--line) !important;
+  background: var(--surface) !important;
+  color: var(--fg) !important;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.cm-tooltip-autocomplete > ul > li[aria-selected] {
+  background: var(--accent) !important;
+  color: white !important;
+}
+.cm-diagnostic {
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+.cm-panels {
+  background: var(--surface-2) !important;
+  color: var(--fg) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
