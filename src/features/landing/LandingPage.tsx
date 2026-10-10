@@ -263,7 +263,7 @@ export default function LandingPage() {
           <p>
             Built by{' '}
             <a
-              href="https://github.com/rajak312"
+              href="https://github.com/lalitkumarrajak"
               target="_blank"
               rel="noreferrer"
               className="font-medium text-fg hover:text-accent"

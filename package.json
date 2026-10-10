@@ -76,7 +76,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajak312/mockforge"
+    "url": "https://github.com/lalitkumarrajak/mockforge"
   },
   "engines": {
     "node": ">=20.19"

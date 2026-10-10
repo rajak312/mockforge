@@ -8,7 +8,7 @@ import { useTheme } from '@/store/theme'
 import { useUi } from '@/store/ui'
 import { useWorkerStatus } from '@/store/worker-status'
 
-export const REPO_URL = 'https://github.com/rajak312/mockforge'
+export const REPO_URL = 'https://github.com/lalitkumarrajak/mockforge'
 
 export function ThemeToggle() {
   const { resolved, toggle } = useTheme()

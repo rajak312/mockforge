@@ -2,7 +2,7 @@
 
 **Design, mock and test REST APIs entirely in the browser.**
 
-**[Live demo](https://mockforge-lalit.vercel.app)** · [Source](https://github.com/rajak312/mockforge)
+**[Live demo](https://mockforge-lalit.vercel.app)** · [Source](https://github.com/lalitkumarrajak/mockforge)
 
 MockForge is a client-side API mocking workbench. You define endpoints with templated, rule-driven responses; a [Mock Service Worker](https://mswjs.io) running in the page intercepts matching `fetch()` calls and answers them from your mocks. You get real HTTP semantics (status codes, headers, latency) with no backend and no sign-up. When the mocks look right, export them as typed MSW handlers and use them in your app, Storybook or Vitest.
 
@@ -108,7 +108,7 @@ Vite 8 · React 19 · TypeScript 5 (strict) · Tailwind CSS v4 · React Router 8
 Requires Node.js 20.19+ (CI uses 22; developed on 24).
 
 ```bash
-git clone https://github.com/rajak312/mockforge.git
+git clone https://github.com/lalitkumarrajak/mockforge.git
 cd mockforge
 npm install
 npm run dev        # http://localhost:3400
@@ -164,6 +164,6 @@ The end-to-end flows (template → edit → client request → CRUD POST/GET →
 
 ## Author
 
-**Lalit Kumar Rajak** — [github.com/rajak312](https://github.com/rajak312)
+**Lalit Kumar Rajak** — [github.com/lalitkumarrajak](https://github.com/lalitkumarrajak)
 
 Released under the [MIT License](LICENSE).
